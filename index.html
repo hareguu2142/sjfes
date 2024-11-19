@@ -375,28 +375,28 @@
                 type: 'page',
                 url: 'a7L3.html'
             },
-            // 문자 코드
-            'aL5D': {
+            // 문자 코드 (소문자로 변경)
+            'al5d': {
                 type: 'page',
                 url: 'aL5D.html'
             },
-            'aN9V': {
+            'an9v': {
                 type: 'page',
                 url: 'aN9V.html'
             },
-            'a7W5': {
+            'a7w5': {
                 type: 'page',
                 url: 'a7W5.html'
             },
-            'aQ8L': {
+            'aq8l': {
                 type: 'page',
                 url: 'aQ8L.html'
             },
-            'aD3K': {
+            'ad3k': {
                 type: 'page',
                 url: 'aD3K.html'
             },
-            'aS6F': {
+            'as6f': {
                 type: 'page',
                 url: 'aS6F.html'
             },
@@ -448,12 +448,13 @@
         };
         numberPad.appendChild(backspace);
 
-        // 알파벳 키패드 생성
+        // 알파벳 키패드 생성 (대문자와 소문자 혼합 문제 해결)
+        // 여기서는 소문자만 입력되도록 설정하고, 'hints' 객체도 소문자로 매핑함
         'abcdefghijklmnopqrstuvwxyz'.split('').forEach(letter => {
             const button = document.createElement('button');
             button.className = 'keypad-button';
-            button.textContent = letter;
-            button.onclick = () => addToCode(letter);
+            button.textContent = letter.toLowerCase();
+            button.onclick = () => addToCode(letter.toLowerCase());
             letterPad.appendChild(button);
         });
 

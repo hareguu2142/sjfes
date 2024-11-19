@@ -473,8 +473,13 @@
                 const codeNumber = currentCode.trim();
                 const mappedCode = numberToCode[codeNumber];
                 if (mappedCode) {
-                    // 숫자에 매핑된 코드가 있을 경우 해당 페이지로 이동
-                    window.location.href = `${mappedCode}.html`;
+                    if (hintCount > 0) {
+                        hintCount--;
+                        updateHintCount();
+                        window.location.href = `${mappedCode}.html`;
+                    } else {
+                        alert('힌트 사용 횟수를 모두 소진하였습니다!');
+                    }
                 } else {
                     alert('입력한 숫자에 해당하는 코드가 없습니다!');
                 }
